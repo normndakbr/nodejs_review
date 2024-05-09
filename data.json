@@ -18,5 +18,10 @@
         "id": 4,
         "name": "Pikachu",
         "type": "electric"
+    },
+    {
+        "id": 5,
+        "name": "Charmeleon",
+        "type": "fire"
     }
 ]

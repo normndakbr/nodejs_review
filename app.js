@@ -19,7 +19,21 @@ app.get('/pokemon', (req, res) => {
 
 // get data with get params /:id
 app.get('/pokemon/:id', (req, res) => {
-    console.log("req params = ", req.params);
+    fs.readFile('./data.json', 'utf-8', (err, data) => {
+        if (err) {
+            res.send(err.message);
+        } else {
+            // console.log(data);
+            data = JSON.parse(data);
+            let pokemonData = {};
+            for (let i = 0; i < data.length; i++) {
+                if (data[i].id === Number(req.params.id)) {
+                    pokemonData = data[i];
+                }
+            }
+            res.send(pokemonData);
+        }
+    });
 });
 
 app.listen(port, () => {
