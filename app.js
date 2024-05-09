@@ -7,12 +7,25 @@ app.get('/', (req, res) => {
     res.send('<h1>Hello World from Express.js!</h1><br>This is Homepage');
 });
 
+// modified get /pokemon route, added req.query
+// example : if you want to look for pokemon with fire type, hit localhost:3000/pokemon?type=fire
 app.get('/pokemon', (req, res) => {
     fs.readFile('./data.json', 'utf-8', (err, data) => {
         if (err) {
             res.send(err.message);
         } else {
-            res.send(data);
+            if (!req.query.type) {
+                res.send(data);
+            } else {
+                data = JSON.parse(data);
+                let queryData = [];
+                for (let i = 0; i < data.length; i++) {
+                    if (data[i].type === req.query.type) {
+                        queryData.push(data[i]);
+                    }
+                }
+                res.send(queryData);
+            }
         }
     });
 });
