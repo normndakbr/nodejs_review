@@ -1,3 +1,10 @@
-### Release 0
+### Day 2
 
-This release were intro to expressjs, it provides basic API using express with Node JS.
+- EJS
+- Nodemon
+- Route POST
+- req.body
+- res.render
+- res.redirect
+- Field validation, error via req.query
+- Routing
