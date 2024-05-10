@@ -16,14 +16,18 @@
         <td>Created At</td>
         <td>Updated At</td>
       </tr>
+      <!-- START : Loop data from JSON -->
+      <!-- instanceDepartement -->
+      <% instanceDepartement.forEach( departement => { %>
       <tr>
-        <td>1</td>
-        <td>FAIT</td>
-        <td>Finance Accounting & IT</td>
-        <td>Departement</td>
-        <td>2024-05-10</td>
-        <td>2024-05-10</td>
+        <td><%= departement.id %></td>
+        <td><%= departement.code %></td>
+        <td><%= departement.name %></td>
+        <td><%= departement.type %></td>
+        <td><%= departement.createdAt %></td>
+        <td><%= departement.updatedAt %></td>
       </tr>
+      <% }); %>
     </table>
   </body>
 </html>
