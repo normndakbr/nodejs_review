@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "idParent": 0,
+        "parentId": 0,
         "code": "LA",
         "name": "Legal, Licensing & Goverment Relation",
         "status": "AKTIF",
@@ -10,7 +10,7 @@
     },
     {
         "id": 2,
-        "idParent": 0,
+        "parentId": 0,
         "code": "FAIT",
         "name": "Finance, Accounting & IT",
         "status": "AKTIF",
@@ -19,7 +19,7 @@
     },
     {
         "id": 3,
-        "idParent": 0,
+        "parentId": 0,
         "code": "HCGS",
         "name": "Human Capital & General Services",
         "status": "AKTIF",
@@ -28,7 +28,7 @@
     },
     {
         "id": 4,
-        "idParent": 0,
+        "parentId": 0,
         "code": "CCM",
         "name": "Coal Chain Management",
         "status": "AKTIF",
