@@ -4,13 +4,17 @@ const PORT = 3000;
 const fs = require('fs');
 const FactoryMasterData = require('./masterData');
 
+// add app.use... to use req.body
+app.use(express.urlencoded({ extended: false }));
+
+// apply ejs as current view engine
 app.set("view engine", "ejs");
 
 app.get('/about', (req, res) => {
     res.render("home");
 });
 
-app.get("/departements", (req, res) => {
+app.get("/masterData", (req, res) => {
     console.log("test");
     // baca file
     fs.readFile("./departements.json", "utf-8", (err, data) => {
@@ -28,6 +32,14 @@ app.get("/departements", (req, res) => {
             res.render("departements", { instanceDepartement });
         }
     });
+});
+
+app.get("/add-masterData", (req, res) => {
+    res.render("addMasterData");
+});
+
+app.post("/add-masterData", (req, res) => {
+    
 });
 
 app.listen(PORT, () => {
