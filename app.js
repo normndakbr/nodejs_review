@@ -11,6 +11,7 @@ app.get('/about', (req, res) => {
 });
 
 app.get("/departements", (req, res) => {
+    console.log("test");
     // baca file
     fs.readFile("./departements.json", "utf-8", (err, data) => {
         if (err) {

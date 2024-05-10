@@ -7,25 +7,25 @@
   </head>
   <body>
     <h1>Data Master Departemen</h1>
-    <table>
+    <table style="width: 100%;" border="1">
       <tr>
-        <td>No</td>
-        <td>Code</td>
-        <td>Name</td>
-        <td>Type</td>
-        <td>Created At</td>
-        <td>Updated At</td>
+        <th>No</th>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Created At</th>
+        <th>Updated At</th>
       </tr>
       <!-- START : Loop data from JSON -->
-      <!-- instanceDepartement -->
+      <!-- Loop data instanceDepartement dari app.js -->
       <% instanceDepartement.forEach( departement => { %>
       <tr>
-        <td><%= departement.id %></td>
-        <td><%= departement.code %></td>
+        <td style="text-align: center;"><%= departement.id %></td>
+        <td style="text-align: center;"><%= departement.code %></td>
         <td><%= departement.name %></td>
-        <td><%= departement.type %></td>
-        <td><%= departement.createdAt %></td>
-        <td><%= departement.updatedAt %></td>
+        <td style="text-align: center;"><%= departement.type %></td>
+        <td style="text-align: center;"><%= departement.createdAt %></td>
+        <td style="text-align: center;"><%= departement.updatedAt %></td>
       </tr>
       <% }); %>
     </table>
