@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "idParent": 0,
+        "code": "LA",
+        "name": "Legal, Licensing & Goverment Relation",
+        "status": "AKTIF",
+        "createdAt": "2019-05-01",
+        "updatedAt": "2019-05-01"
+    },
+    {
+        "id": 2,
+        "idParent": 0,
+        "code": "FAIT",
+        "name": "Finance, Accounting & IT",
+        "status": "AKTIF",
+        "createdAt": "2019-05-01",
+        "updatedAt": "2019-05-01"
+    },
+    {
+        "id": 3,
+        "idParent": 0,
+        "code": "HCGS",
+        "name": "Human Capital & General Services",
+        "status": "AKTIF",
+        "createdAt": "2019-05-01",
+        "updatedAt": "2019-05-01"
+    },
+    {
+        "id": 4,
+        "idParent": 0,
+        "code": "CCM",
+        "name": "Coal Chain Management",
+        "status": "AKTIF",
+        "createdAt": "2019-05-01",
+        "updatedAt": "2019-05-01"
+    }
+]
