@@ -39,7 +39,7 @@ app.get("/add-masterData", (req, res) => {
 });
 
 app.post("/add-masterData", (req, res) => {
-    
+    console.log(req.body);
 });
 
 app.listen(PORT, () => {
