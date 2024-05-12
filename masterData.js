@@ -12,8 +12,8 @@ class MasterData {
 }
 
 class Departement extends MasterData {
-    constructor(id, code, name, status, createdAt, updatedAt) {
-        super(id, 0, code, name, "departement", status, createdAt, updatedAt);
+    constructor(id, parentId, code, name, status, createdAt, updatedAt) {
+        super(id, parentId, code, name, "departement", status, createdAt, updatedAt);
     }
 }
 
@@ -32,7 +32,7 @@ class Position extends MasterData {
 class FactoryMasterData {
     static create(obj) {
         if (obj.type === "departement") {
-            return new Departement(obj.id, obj.code, obj.name, obj.status, obj.createdAt, obj.updatedAt);
+            return new Departement(obj.id, obj.parentId, obj.code, obj.name, obj.status, obj.createdAt, obj.updatedAt);
         } else if (obj.type === "section") {
             return new Section(obj.id, obj.parentId, obj.code, obj.name, obj.status, obj.createdAt, obj.updatedAt);
         } else if (obj.type === "position") {

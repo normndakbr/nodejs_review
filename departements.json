@@ -1,42 +1,51 @@
 [
-    {
-        "id": 1,
-        "parentId": 0,
-        "code": "LA",
-        "name": "Legal, Licensing & Goverment Relation",
-        "type": "Departement",
-        "status": "AKTIF",
-        "createdAt": "2019-05-01",
-        "updatedAt": "2019-05-01"
-    },
-    {
-        "id": 2,
-        "parentId": 0,
-        "code": "FAIT",
-        "name": "Finance, Accounting & IT",
-        "type": "Departement",
-        "status": "AKTIF",
-        "createdAt": "2019-05-01",
-        "updatedAt": "2019-05-01"
-    },
-    {
-        "id": 3,
-        "parentId": 0,
-        "code": "HCGS",
-        "name": "Human Capital & General Services",
-        "type": "Departement",
-        "status": "AKTIF",
-        "createdAt": "2019-05-01",
-        "updatedAt": "2019-05-01"
-    },
-    {
-        "id": 4,
-        "parentId": 0,
-        "code": "CCM",
-        "name": "Coal Chain Management",
-        "type": "Departement",
-        "status": "AKTIF",
-        "createdAt": "2019-05-01",
-        "updatedAt": "2019-05-01"
-    }
+  {
+    "id": 1,
+    "parentId": 0,
+    "code": "LA",
+    "name": "Legal, Licensing & Goverment Relation",
+    "status": "AKTIF",
+    "type": "Departement",
+    "createdAt": "2019-05-01, 5:01:42 pm",
+    "updatedAt": "2019-05-01,  5:01:42 pm"
+  },
+  {
+    "id": 2,
+    "parentId": 0,
+    "code": "FAIT",
+    "name": "Finance, Accounting & IT",
+    "status": "AKTIF",
+    "type": "Departement",
+    "createdAt": "2019-05-01, 5:01:42 pm",
+    "updatedAt": "2019-05-01,  5:01:42 pm"
+  },
+  {
+    "id": 3,
+    "parentId": 0,
+    "code": "HCGS",
+    "name": "Human Capital & General Services",
+    "status": "AKTIF",
+    "type": "Departement",
+    "createdAt": "2019-05-01, 5:01:42 pm",
+    "updatedAt": "2019-05-01,  5:01:42 pm"
+  },
+  {
+    "id": 4,
+    "parentId": 0,
+    "code": "CCM",
+    "name": "Coal Chain Management",
+    "status": "AKTIF",
+    "type": "Departement",
+    "createdAt": "2019-05-01, 5:01:42 pm",
+    "updatedAt": "2019-05-01,  5:01:42 pm"
+  },
+  {
+    "id": 5,
+    "code": "OHS",
+    "name": "Occupational, Health and Safety",
+    "status": "AKTIF",
+    "type": "departement",
+    "createdAt": "12/05/2024, 5:02:49 pm",
+    "updatedAt": "12/05/2024, 5:02:49 pm"
+  }
 ]
