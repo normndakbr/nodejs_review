@@ -41,7 +41,7 @@ app.post("/add-masterData", (req, res) => {
     let currentDate = new Date().toLocaleString();
     let createdAt = currentDate;
     let updatedAt = currentDate;
-    let idParent = 0;
+    let parentId = 0;
     let status = "AKTIF";
 
     // baca file
@@ -62,7 +62,7 @@ app.post("/add-masterData", (req, res) => {
             }
 
             const objDataMaster = {
-                id, idParent, code, name, type, status, createdAt, updatedAt
+                id, parentId, code, name, type, status, createdAt, updatedAt
             };
 
             // factory, inputan menjadi instance

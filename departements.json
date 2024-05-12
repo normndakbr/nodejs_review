@@ -41,11 +41,12 @@
   },
   {
     "id": 5,
+    "parentId": 0,
     "code": "OHS",
     "name": "Occupational, Health and Safety",
     "status": "AKTIF",
     "type": "departement",
-    "createdAt": "12/05/2024, 5:02:49 pm",
-    "updatedAt": "12/05/2024, 5:02:49 pm"
+    "createdAt": "12/05/2024, 5:04:28 pm",
+    "updatedAt": "12/05/2024, 5:04:28 pm"
   }
 ]
