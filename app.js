@@ -26,6 +26,7 @@ app.get("/masterData", (req, res) => {
             });
             // array of instance
             // console.log(instanceDepartement);
+
             // render ke products.ejs {}
             res.render("departements", { instanceDepartement });
         }

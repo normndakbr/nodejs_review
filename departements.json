@@ -5,7 +5,7 @@
     "code": "LA",
     "name": "Legal, Licensing & Goverment Relation",
     "status": "AKTIF",
-    "type": "Departement",
+    "type": "departement",
     "createdAt": "2019-05-01, 5:01:42 pm",
     "updatedAt": "2019-05-01,  5:01:42 pm"
   },
@@ -15,7 +15,7 @@
     "code": "FAIT",
     "name": "Finance, Accounting & IT",
     "status": "AKTIF",
-    "type": "Departement",
+    "type": "departement",
     "createdAt": "2019-05-01, 5:01:42 pm",
     "updatedAt": "2019-05-01,  5:01:42 pm"
   },
@@ -25,7 +25,7 @@
     "code": "HCGS",
     "name": "Human Capital & General Services",
     "status": "AKTIF",
-    "type": "Departement",
+    "type": "departement",
     "createdAt": "2019-05-01, 5:01:42 pm",
     "updatedAt": "2019-05-01,  5:01:42 pm"
   },
@@ -35,7 +35,7 @@
     "code": "CCM",
     "name": "Coal Chain Management",
     "status": "AKTIF",
-    "type": "Departement",
+    "type": "departement",
     "createdAt": "2019-05-01, 5:01:42 pm",
     "updatedAt": "2019-05-01,  5:01:42 pm"
   },
@@ -48,5 +48,25 @@
     "type": "departement",
     "createdAt": "12/05/2024, 5:04:28 pm",
     "updatedAt": "12/05/2024, 5:04:28 pm"
+  },
+  {
+    "id": 6,
+    "parentId": 0,
+    "code": "TST",
+    "name": "TEST",
+    "status": "AKTIF",
+    "type": "section",
+    "createdAt": "12/05/2024, 7:08:56 pm",
+    "updatedAt": "12/05/2024, 7:08:56 pm"
+  },
+  {
+    "id": 7,
+    "parentId": 0,
+    "code": "TEST2",
+    "name": "TEST2",
+    "status": "AKTIF",
+    "type": "position",
+    "createdAt": "12/05/2024, 7:13:17 pm",
+    "updatedAt": "12/05/2024, 7:13:17 pm"
   }
 ]
