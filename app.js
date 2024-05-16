@@ -37,6 +37,25 @@ app.get("/add-masterData", (req, res) => {
     res.render("addMasterData");
 });
 
+app.get("/masterData/:id/edit-masterData", (req, res) => {
+    // get id from request params (:id) and convert it to number
+    let id = +req.params.id;
+    fs.readFile("./departements.json", "utf-8", (err, data) => {
+        if (err) {
+            res.render(err);
+        } else {
+            data = JSON.parse(data);
+            const instanceDataMaster = data.filter(masterData => {
+                if (masterData.id === id) {
+                    return FactoryMasterData.create(masterData);
+                }
+            });
+            console.log(instanceDataMaster);
+            // res.render("editMasterData", { instanceDataMaster });
+        }
+    });
+});
+
 app.post("/add-masterData", (req, res) => {
     const { code, name, type } = req.body;
     let currentDate = new Date().toLocaleString();
