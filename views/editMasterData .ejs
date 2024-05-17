@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Apps</title>
+  </head>
+  <body>
+    <h1>Edit Master Data</h1>
+    <form action="/edit-masterData" method="POST">
+      <!-- code input -->
+      <label for="code">Code : </label><br />
+      <input type="text" name="code" id="code" /><br /><br />
+      <!-- name input -->
+      <label for="name">Name : </label><br />
+      <input type="text" name="name" id="name" /><br /><br />
+      <!-- type input -->
+      <label for="type">Type : </label><br />
+      <input type="radio" name="type" id="departement" value="departement" />
+      <label for="type">Departement</label><br />
+      <input type="radio" name="type" id="section" value="section" />
+      <label for="type">Section</label><br />
+      <input type="radio" name="type" id="position" value="position" />
+      <label for="type">Position</label><br /><br />
+
+      <input type="submit" value="submit" />
+    </form>
+  </body>
+</html>
