@@ -45,13 +45,13 @@ app.get("/masterData/:id/edit-masterData", (req, res) => {
             res.render(err);
         } else {
             data = JSON.parse(data);
-            const instanceDataMaster = data.filter(masterData => {
+            const instanceMasterData = data.filter(masterData => {
                 if (masterData.id === id) {
                     return FactoryMasterData.create(masterData);
                 }
             });
-            console.log(instanceDataMaster);
-            // res.render("editMasterData", { instanceDataMaster });
+            // console.log(instanceMasterData[0]);
+            res.render("editMasterData", { instanceMasterData });
         }
     });
 });

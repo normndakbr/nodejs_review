@@ -7,13 +7,15 @@
   </head>
   <body>
     <h1>Edit Master Data</h1>
-    <form action="/edit-masterData" method="POST">
+    <form action="/masterData/<%= instanceMasterData[0].id %>/edit-masterData" method="POST">
       <!-- code input -->
       <label for="code">Code : </label><br />
-      <input type="text" name="code" id="code" /><br /><br />
+      <input type="text" name="code" id="code" value=""/><br /><br />
+
       <!-- name input -->
       <label for="name">Name : </label><br />
-      <input type="text" name="name" id="name" /><br /><br />
+      <input type="text" name="name" id="name" value=""/><br /><br />
+
       <!-- type input -->
       <label for="type">Type : </label><br />
       <input type="radio" name="type" id="departement" value="departement" />
