@@ -10,7 +10,8 @@ app.use(express.urlencoded({ extended: false }));
 // apply ejs as current view engine
 app.set("view engine", "ejs");
 
-app.get('/about', (req, res) => {
+app.get('/', (req, res) => {
+    console.log("test");
     res.render("home");
 });
 
