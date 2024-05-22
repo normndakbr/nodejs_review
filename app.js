@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
     res.render("home");
 });
 
-app.get("/masterData", (req, res) => {
+app.get("/departements", (req, res) => {
     fs.readFile("./departements.json", "utf-8", (err, data) => {
         if (err) {
             res.send(err);
@@ -91,6 +91,47 @@ app.post("/add-masterData", (req, res) => {
 
             // add ke arr instance
             instanceDataMaster.push(newDataMaster);
+
+            const newData = JSON.stringify(instanceDataMaster, null, 2);
+
+            // write file
+            fs.writeFile("./departements.json", newData, "utf-8", (err, data) => {
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.redirect("/masterData");
+                }
+            });
+        }
+    });
+});
+
+app.post("/masterData/:id/edit-masterData", (req, res) => {
+    // get id from request params (:id) and convert it to number
+    let id = +req.params.id;
+
+    fs.readFile("./departements.json", "utf-8", (err, data) => {
+        if (err) {
+            res.send(err);
+        } else {
+            data = JSON.parse(data);
+            // dibuat instance
+            const instanceDataMaster = data.map(departement => {
+                return FactoryMasterData.create(departement);
+            });
+
+            console.log(instanceDataMaster);
+
+            const objDataMaster = {
+                id, parentId, code, name, type, status, createdAt, updatedAt
+            };
+
+            for (let i = 0; i < instanceDataMaster.length; i++) {
+                if (id === instanceDataMaster[i].id) {
+                    const newDataMaster = FactoryMasterData.create(objDataMaster);
+                    instanceDataMaster.splice(i, 1, newDataMaster);
+                }
+            }
 
             const newData = JSON.stringify(instanceDataMaster, null, 2);
 

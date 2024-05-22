@@ -1,0 +1,32 @@
+[
+  {
+    "id": 6,
+    "parentId": 0,
+    "code": "TST",
+    "name": "TEST",
+    "status": "AKTIF",
+    "type": "section",
+    "createdAt": "12/05/2024, 7:08:56 pm",
+    "updatedAt": "12/05/2024, 7:08:56 pm"
+  },
+  {
+    "id": 8,
+    "parentId": 0,
+    "code": "TST2",
+    "name": "Test2",
+    "status": "AKTIF",
+    "type": "section",
+    "createdAt": "16/05/2024, 2:12:31 pm",
+    "updatedAt": "16/05/2024, 2:12:31 pm"
+  },
+  {
+    "id": 9,
+    "parentId": 0,
+    "code": "TST3",
+    "name": "test3",
+    "status": "AKTIF",
+    "type": "section",
+    "createdAt": "16/05/2024, 2:12:55 pm",
+    "updatedAt": "16/05/2024, 2:12:55 pm"
+  }
+]

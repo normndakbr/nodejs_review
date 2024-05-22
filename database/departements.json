@@ -50,46 +50,6 @@
     "updatedAt": "12/05/2024, 5:04:28 pm"
   },
   {
-    "id": 6,
-    "parentId": 0,
-    "code": "TST",
-    "name": "TEST",
-    "status": "AKTIF",
-    "type": "section",
-    "createdAt": "12/05/2024, 7:08:56 pm",
-    "updatedAt": "12/05/2024, 7:08:56 pm"
-  },
-  {
-    "id": 7,
-    "parentId": 0,
-    "code": "TEST2",
-    "name": "TEST2",
-    "status": "AKTIF",
-    "type": "position",
-    "createdAt": "12/05/2024, 7:13:17 pm",
-    "updatedAt": "12/05/2024, 7:13:17 pm"
-  },
-  {
-    "id": 8,
-    "parentId": 0,
-    "code": "TST2",
-    "name": "Test2",
-    "status": "AKTIF",
-    "type": "section",
-    "createdAt": "16/05/2024, 2:12:31 pm",
-    "updatedAt": "16/05/2024, 2:12:31 pm"
-  },
-  {
-    "id": 9,
-    "parentId": 0,
-    "code": "TST3",
-    "name": "test3",
-    "status": "AKTIF",
-    "type": "section",
-    "createdAt": "16/05/2024, 2:12:55 pm",
-    "updatedAt": "16/05/2024, 2:12:55 pm"
-  },
-  {
     "id": 10,
     "parentId": 0,
     "code": "TST4",
@@ -98,15 +58,5 @@
     "type": "departement",
     "createdAt": "16/05/2024, 3:34:31 pm",
     "updatedAt": "16/05/2024, 3:34:31 pm"
-  },
-  {
-    "id": 11,
-    "parentId": 0,
-    "code": "TST5",
-    "name": "Test 5",
-    "status": "AKTIF",
-    "type": "position",
-    "createdAt": "19/05/2024, 5:09:22 pm",
-    "updatedAt": "19/05/2024, 5:09:22 pm"
   }
 ]
