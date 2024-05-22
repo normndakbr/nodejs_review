@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 });
 
 app.get("/departements", (req, res) => {
-    fs.readFile("./departements.json", "utf-8", (err, data) => {
+    fs.readFile("./database/departements.json", "utf-8", (err, data) => {
         if (err) {
             res.send(err);
         } else {
@@ -29,7 +29,7 @@ app.get("/departements", (req, res) => {
             // console.log(instanceDepartement);
 
             // render ke products.ejs {}
-            res.render("departements", { instanceDepartement });
+            res.render("viewDepartements", { instanceDepartement });
         }
     });
 });
