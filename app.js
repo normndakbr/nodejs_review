@@ -21,15 +21,38 @@ app.get("/departements", (req, res) => {
             res.send(err);
         } else {
             data = JSON.parse(data);
-            // buat menjadi instance
             const instanceDepartement = data.map(departement => {
                 return FactoryMasterData.create(departement);
             });
-            // array of instance
-            // console.log(instanceDepartement);
-
-            // render ke products.ejs {}
             res.render("viewDepartements", { instanceDepartement });
+        }
+    });
+});
+
+app.get("/positions", (req, res) => {
+    fs.readFile("./database/positions.json", "utf-8", (err, data) => {
+        if (err) {
+            res.send(err);
+        } else {
+            data = JSON.parse(data);
+            const instancePositions = data.map(position => {
+                return FactoryMasterData.create(position);
+            });
+            res.render("viewPositions", { instancePositions });
+        }
+    });
+});
+
+app.get("/Sections", (req, res) => {
+    fs.readFile("./database/sections.json", "utf-8", (err, data) => {
+        if (err) {
+            res.send(err);
+        } else {
+            data = JSON.parse(data);
+            const instanceSections = data.map(section => {
+                return FactoryMasterData.create(section);
+            });
+            res.render("viewSections", { instanceSections });
         }
     });
 });
