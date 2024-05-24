@@ -12,7 +12,7 @@ app.set("view engine", "ejs");
 
 app.get('/', (req, res) => {
     console.log("test");
-    res.render("home");
+    res.render("homepage");
 });
 
 app.get("/departements", (req, res) => {
@@ -24,7 +24,7 @@ app.get("/departements", (req, res) => {
             const instanceDepartement = data.map(departement => {
                 return FactoryMasterData.create(departement);
             });
-            res.render("viewDepartements", { instanceDepartement });
+            res.render("departement/view", { instanceDepartement });
         }
     });
 });
@@ -38,7 +38,7 @@ app.get("/positions", (req, res) => {
             const instancePositions = data.map(position => {
                 return FactoryMasterData.create(position);
             });
-            res.render("viewPositions", { instancePositions });
+            res.render("position/view", { instancePositions });
         }
     });
 });
@@ -52,7 +52,7 @@ app.get("/Sections", (req, res) => {
             const instanceSections = data.map(section => {
                 return FactoryMasterData.create(section);
             });
-            res.render("viewSections", { instanceSections });
+            res.render("section/view", { instanceSections });
         }
     });
 });
