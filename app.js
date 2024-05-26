@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const PORT = 3000;
+require('dotenv').config();
+const PORT = process.env.PORT;
 const fs = require('fs');
 const FactoryMasterData = require('./masterData');
 
@@ -15,7 +16,7 @@ app.get('/', (req, res) => {
     res.render("homepage");
 });
 
-app.get("/departements", (req, res) => {
+app.get("/departement", (req, res) => {
     fs.readFile("./database/departements.json", "utf-8", (err, data) => {
         if (err) {
             res.send(err);
@@ -29,7 +30,11 @@ app.get("/departements", (req, res) => {
     });
 });
 
-app.get("/positions", (req, res) => {
+app.get("/departement/add", (req, res) => {
+    res.render("departement/add");
+});
+
+app.get("/position", (req, res) => {
     fs.readFile("./database/positions.json", "utf-8", (err, data) => {
         if (err) {
             res.send(err);
@@ -43,7 +48,11 @@ app.get("/positions", (req, res) => {
     });
 });
 
-app.get("/Sections", (req, res) => {
+app.get("/position/add", (req, res) => {
+    res.render("position/add");
+});
+
+app.get("/section", (req, res) => {
     fs.readFile("./database/sections.json", "utf-8", (err, data) => {
         if (err) {
             res.send(err);
@@ -57,8 +66,8 @@ app.get("/Sections", (req, res) => {
     });
 });
 
-app.get("/add-masterData", (req, res) => {
-    res.render("addMasterData");
+app.get("/section/add", (req, res) => {
+    res.render("section/add");
 });
 
 app.get("/masterData/:id/edit-masterData", (req, res) => {

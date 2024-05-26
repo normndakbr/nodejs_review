@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "parentId": 0,
+    "code": "IC",
+    "name": "PT INDEXIM COALINDO",
+    "status": "AKTIF",
+    "type" : "Owner",
+    "createdAt": "2019-05-01, 5:01:42 pm",
+    "updatedAt": "2019-05-01,  5:01:42 pm"
+  },
+  {
+    "id": 2,
+    "parentId": 1,
+    "code": "UDU",
+    "name": "UNGGUL DINAMIKA UTAMA",
+    "status": "AKTIF",
+    "type" : "Subcontractor",
+    "createdAt": "2019-05-01, 5:01:42 pm",
+    "updatedAt": "2019-05-01,  5:01:42 pm"
+  }
+]

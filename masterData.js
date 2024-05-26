@@ -32,13 +32,13 @@ class Position extends MasterData {
 class FactoryMasterData {
     static create(obj) {
         if (obj.type === "departement") {
-            console.log("departement");
+            // console.log("departement");
             return new Departement(obj.id, obj.parentId, obj.code, obj.name, obj.status, obj.createdAt, obj.updatedAt);
         } else if (obj.type === "section") {
-            console.log("section");
+            // console.log("section");
             return new Section(obj.id, obj.parentId, obj.code, obj.name, obj.status, obj.createdAt, obj.updatedAt);
         } else if (obj.type === "position") {
-            console.log("position");
+            // console.log("position");
             return new Position(obj.id, obj.parentId, obj.code, obj.name, obj.status, obj.createdAt, obj.updatedAt);
         } else {
             return new MasterData(obj.id, obj.parentId, obj.code, obj.name, obj.type, obj.status, obj.createdAt, obj.updatedAt);
