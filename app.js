@@ -70,7 +70,54 @@ app.get("/section/add", (req, res) => {
     res.render("section/add");
 });
 
-app.get("/masterData/:id/edit-masterData", (req, res) => {
+app.post("/section/add", (req, res) => {
+    const { code, name, type } = req.body;
+    let currentDate = new Date().toLocaleString();
+    let createdAt = currentDate;
+    let updatedAt = currentDate;
+    let parentId = 0;
+    let status = "AKTIF";
+
+    // baca file
+    fs.readFile("./database/sections.json", "utf-8", (err, data) => {
+        if (err) {
+            res.send(err);
+        } else {
+            data = JSON.parse(data);
+            console.log(data);
+            const instanceData = data.map(section => {
+                return FactoryMasterData.create(section);
+            });
+
+            let id = 1;
+            if (instanceData.length > 0) {
+                id = instanceData[instanceData.length - 1].id + 1;
+            }
+
+            const objSection = {
+                id, parentId, code, name, type, status, createdAt, updatedAt
+            };
+
+            // factory, inputan menjadi instance
+            const newSection = FactoryMasterData.create(objSection);
+
+            instanceData.push(newSection);
+
+            const newData = JSON.stringify(instanceData, null, 2);
+
+            // write file
+            fs.writeFile("./database/sections.json", newData, "utf-8", (err, data) => {
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.redirect("/section");
+                }
+            });
+        }
+    });
+});
+
+app.get("/departement/:id/edit", (req, res) => {
     // get id from request params (:id) and convert it to number
     let id = +req.params.id;
     fs.readFile("./departements.json", "utf-8", (err, data) => {
@@ -78,13 +125,13 @@ app.get("/masterData/:id/edit-masterData", (req, res) => {
             res.render(err);
         } else {
             data = JSON.parse(data);
-            const instanceMasterData = data.filter(masterData => {
+            const instanceDepartement = data.filter(masterData => {
                 if (masterData.id === id) {
                     return FactoryMasterData.create(masterData);
                 }
             });
-            // console.log(instanceMasterData[0]);
-            res.render("editMasterData", { instanceMasterData });
+            // console.log(instanceDepartement[0]);
+            res.render("/departement/edit", { instanceDepartement });
         }
     });
 });

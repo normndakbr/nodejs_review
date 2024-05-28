@@ -28,5 +28,25 @@
     "type": "section",
     "createdAt": "16/05/2024, 2:12:55 pm",
     "updatedAt": "16/05/2024, 2:12:55 pm"
+  },
+  {
+    "id": 10,
+    "parentId": 0,
+    "code": "asdf",
+    "name": "asdfasdaf",
+    "status": "AKTIF",
+    "type": "section",
+    "createdAt": "28/05/2024, 2:45:03 pm",
+    "updatedAt": "28/05/2024, 2:45:03 pm"
+  },
+  {
+    "id": 11,
+    "parentId": 0,
+    "code": "cvbn",
+    "name": "cvbn",
+    "status": "AKTIF",
+    "type": "section",
+    "createdAt": "28/05/2024, 2:45:11 pm",
+    "updatedAt": "28/05/2024, 2:45:11 pm"
   }
 ]
