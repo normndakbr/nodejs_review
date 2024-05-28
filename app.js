@@ -52,6 +52,47 @@ app.get("/position/add", (req, res) => {
     res.render("position/add");
 });
 
+app.post("/position/add", (req, res) => {
+    const { code, name, type } = req.body;
+    let currentDate = new Date().toLocaleString();
+    let createdAt = currentDate;
+    let updatedAt = currentDate;
+    let parentId = 0;
+    let status = "AKTIF";
+
+    fs.readFile("./database/positions.json", "utf-8", (err, data) => {
+        if (err) {
+            res.send(err);
+        } else {
+            data = JSON.parse(data);
+            const instanceData = data.map(position => {
+                return FactoryMasterData.create(position);
+            });
+
+            let id = 1;
+            if (instanceData.length > 0) {
+                id = instanceData[instanceData.length - 1].id + 1;
+            }
+
+            const objPosition = {
+                id, parentId, code, name, type, status, createdAt, updatedAt
+            };
+
+            const newPosition = FactoryMasterData.create(objPosition);
+            instanceData.push(newPosition);
+            const newData = JSON.stringify(instanceData, null, 2);
+
+            fs.writeFile("./database/positions.json", newData, "utf-8", (err, data) => {
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.redirect("/position");
+                }
+            });
+        }
+    });
+});
+
 app.get("/section", (req, res) => {
     fs.readFile("./database/sections.json", "utf-8", (err, data) => {
         if (err) {
@@ -78,13 +119,11 @@ app.post("/section/add", (req, res) => {
     let parentId = 0;
     let status = "AKTIF";
 
-    // baca file
     fs.readFile("./database/sections.json", "utf-8", (err, data) => {
         if (err) {
             res.send(err);
         } else {
             data = JSON.parse(data);
-            console.log(data);
             const instanceData = data.map(section => {
                 return FactoryMasterData.create(section);
             });
@@ -98,14 +137,10 @@ app.post("/section/add", (req, res) => {
                 id, parentId, code, name, type, status, createdAt, updatedAt
             };
 
-            // factory, inputan menjadi instance
             const newSection = FactoryMasterData.create(objSection);
-
             instanceData.push(newSection);
-
             const newData = JSON.stringify(instanceData, null, 2);
 
-            // write file
             fs.writeFile("./database/sections.json", newData, "utf-8", (err, data) => {
                 if (err) {
                     res.send(err);

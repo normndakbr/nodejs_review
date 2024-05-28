@@ -18,5 +18,35 @@
     "type": "position",
     "createdAt": "19/05/2024, 5:09:22 pm",
     "updatedAt": "19/05/2024, 5:09:22 pm"
+  },
+  {
+    "id": 12,
+    "parentId": 0,
+    "code": "OFF",
+    "name": "Officer",
+    "status": "AKTIF",
+    "type": "position",
+    "createdAt": "29/05/2024, 7:31:09 am",
+    "updatedAt": "29/05/2024, 7:31:09 am"
+  },
+  {
+    "id": 13,
+    "parentId": 0,
+    "code": "JOFF",
+    "name": "Junior Officer",
+    "status": "AKTIF",
+    "type": "position",
+    "createdAt": "29/05/2024, 7:34:08 am",
+    "updatedAt": "29/05/2024, 7:34:08 am"
+  },
+  {
+    "id": 14,
+    "parentId": 0,
+    "code": "SOFF",
+    "name": "Senior Officer",
+    "status": "AKTIF",
+    "type": "position",
+    "createdAt": "29/05/2024, 7:34:22 am",
+    "updatedAt": "29/05/2024, 7:34:22 am"
   }
 ]
