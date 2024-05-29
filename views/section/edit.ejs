@@ -8,7 +8,7 @@
   <body>
     <h1>Edit Section</h1>
     <form
-      action="/masterData/<%= instanceMasterData[0].id %>/edit-masterData"
+      action="/masterData/<%= instanceSection[0].id %>/edit-masterData"
       method="POST"
     >
       <!-- code input -->
@@ -17,7 +17,7 @@
         type="text"
         name="code"
         id="code"
-        value="<%= instanceMasterData[0].code %>"
+        value="<%= instanceSection[0].code %>"
       /><br /><br />
 
       <!-- name input -->
@@ -26,18 +26,18 @@
         type="text"
         name="name"
         id="name"
-        value="<%= instanceMasterData[0].name %>"
+        value="<%= instanceSection[0].name %>"
       /><br /><br />
 
       <!-- type input -->
       <label for="type">Type : </label><br />
-      <input <% if(instanceMasterData[0].type==='departement') { %> checked <% }
+      <input <% if(instanceSection[0].type==='departement') { %> checked <% }
       %> type="radio" name="type" id="departement" value="departement" />
       <label for="type">Departement</label><br />
-      <input <% if(instanceMasterData[0].type==='section') { %> checked <% } %>
+      <input <% if(instanceSection[0].type==='section') { %> checked <% } %>
       type="radio" name="type" id="section" value="section" />
       <label for="type">Section</label><br />
-      <input <% if(instanceMasterData[0].type==='position') { %> checked <% } %>
+      <input <% if(instanceSection[0].type==='position') { %> checked <% } %>
       type="radio" name="type" id="position" value="position" />
       <label for="type">Position</label><br /><br />
 

@@ -58,5 +58,15 @@
     "type": "departement",
     "createdAt": "16/05/2024, 3:34:31 pm",
     "updatedAt": "29/05/2024, 5:01:57 pm"
+  },
+  {
+    "id": 11,
+    "parentId": 0,
+    "code": "TST1",
+    "name": "TEST 2",
+    "status": "AKTIF",
+    "type": "departement",
+    "createdAt": "29/05/2024, 5:27:55 pm",
+    "updatedAt": "29/05/2024, 5:27:55 pm"
   }
 ]

@@ -285,7 +285,7 @@ app.post("/section/add", (req, res) => {
     });
 });
 
-app.post("/add-masterData", (req, res) => {
+app.post("/departement/add", (req, res) => {
     const { code, name, type } = req.body;
     let currentDate = new Date().toLocaleString();
     let createdAt = currentDate;
@@ -294,40 +294,40 @@ app.post("/add-masterData", (req, res) => {
     let status = "AKTIF";
 
     // baca file
-    fs.readFile("./departements.json", "utf-8", (err, data) => {
+    fs.readFile("./database/departements.json", "utf-8", (err, data) => {
         if (err) {
             res.send(err);
         } else {
             data = JSON.parse(data);
             // dibuat instance
-            const instanceDataMaster = data.map(departement => {
+            const instanceDepartement = data.map(departement => {
                 return FactoryMasterData.create(departement);
             });
 
             // generate id for new data master
             let id = 1;
-            if (instanceDataMaster.length > 0) {
-                id = instanceDataMaster[instanceDataMaster.length - 1].id + 1;
+            if (instanceDepartement.length > 0) {
+                id = instanceDepartement[instanceDepartement.length - 1].id + 1;
             }
 
-            const objDataMaster = {
+            const objDepartement = {
                 id, parentId, code, name, type, status, createdAt, updatedAt
             };
 
             // factory, inputan menjadi instance
-            const newDataMaster = FactoryMasterData.create(objDataMaster);
+            const newDepartement = FactoryMasterData.create(objDepartement);
 
             // add ke arr instance
-            instanceDataMaster.push(newDataMaster);
+            instanceDepartement.push(newDepartement);
 
-            const newData = JSON.stringify(instanceDataMaster, null, 2);
+            const newData = JSON.stringify(instanceDepartement, null, 2);
 
             // write file
-            fs.writeFile("./departements.json", newData, "utf-8", (err, data) => {
+            fs.writeFile("./database/departements.json", newData, "utf-8", (err, data) => {
                 if (err) {
                     res.send(err);
                 } else {
-                    res.redirect("/masterData");
+                    res.redirect("/departement");
                 }
             });
         }
