@@ -2,12 +2,12 @@
   {
     "id": 6,
     "parentId": 0,
-    "code": "TST",
-    "name": "TEST",
+    "code": "TST123",
+    "name": "TEST345",
     "status": "AKTIF",
     "type": "section",
     "createdAt": "12/05/2024, 7:08:56 pm",
-    "updatedAt": "12/05/2024, 7:08:56 pm"
+    "updatedAt": "29/05/2024, 5:43:39 pm"
   },
   {
     "id": 8,

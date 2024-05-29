@@ -34,6 +34,54 @@ app.get("/departement/add", (req, res) => {
     res.render("departement/add");
 });
 
+app.post("/departement/add", (req, res) => {
+    const { code, name, type } = req.body;
+    let currentDate = new Date().toLocaleString();
+    let createdAt = currentDate;
+    let updatedAt = currentDate;
+    let parentId = 0;
+    let status = "AKTIF";
+
+    fs.readFile("./database/departements.json", "utf-8", (err, data) => {
+        if (err) {
+            res.send(err);
+        } else {
+            data = JSON.parse(data);
+            // dibuat instance
+            const instanceDepartement = data.map(departement => {
+                return FactoryMasterData.create(departement);
+            });
+
+            // generate id for new data master
+            let id = 1;
+            if (instanceDepartement.length > 0) {
+                id = instanceDepartement[instanceDepartement.length - 1].id + 1;
+            }
+
+            const objDepartement = {
+                id, parentId, code, name, type, status, createdAt, updatedAt
+            };
+
+            // factory, inputan menjadi instance
+            const newDepartement = FactoryMasterData.create(objDepartement);
+
+            // add ke arr instance
+            instanceDepartement.push(newDepartement);
+
+            const newData = JSON.stringify(instanceDepartement, null, 2);
+
+            // write file
+            fs.writeFile("./database/departements.json", newData, "utf-8", (err, data) => {
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.redirect("/departement");
+                }
+            });
+        }
+    });
+});
+
 app.get("/departement/:id/edit", (req, res) => {
     let id = +req.params.id;
     fs.readFile("./database/departements.json", "utf-8", (err, data) => {
@@ -285,90 +333,67 @@ app.post("/section/add", (req, res) => {
     });
 });
 
-app.post("/departement/add", (req, res) => {
-    const { code, name, type } = req.body;
-    let currentDate = new Date().toLocaleString();
-    let createdAt = currentDate;
-    let updatedAt = currentDate;
-    let parentId = 0;
-    let status = "AKTIF";
-
-    // baca file
-    fs.readFile("./database/departements.json", "utf-8", (err, data) => {
+app.get("/section/:id/edit", (req, res) => {
+    let id = +req.params.id;
+    fs.readFile("./database/sections.json", "utf-8", (err, data) => {
         if (err) {
-            res.send(err);
+            res.render(err);
         } else {
+            console.log(data);
             data = JSON.parse(data);
-            // dibuat instance
-            const instanceDepartement = data.map(departement => {
-                return FactoryMasterData.create(departement);
-            });
-
-            // generate id for new data master
-            let id = 1;
-            if (instanceDepartement.length > 0) {
-                id = instanceDepartement[instanceDepartement.length - 1].id + 1;
-            }
-
-            const objDepartement = {
-                id, parentId, code, name, type, status, createdAt, updatedAt
-            };
-
-            // factory, inputan menjadi instance
-            const newDepartement = FactoryMasterData.create(objDepartement);
-
-            // add ke arr instance
-            instanceDepartement.push(newDepartement);
-
-            const newData = JSON.stringify(instanceDepartement, null, 2);
-
-            // write file
-            fs.writeFile("./database/departements.json", newData, "utf-8", (err, data) => {
-                if (err) {
-                    res.send(err);
-                } else {
-                    res.redirect("/departement");
+            const instanceSection = data.filter(section => {
+                if (section.id === id) {
+                    return FactoryMasterData.create(section);
                 }
             });
+            res.render("section/edit", { instanceSection });
         }
     });
 });
 
-app.post("/masterData/:id/edit-masterData", (req, res) => {
-    // get id from request params (:id) and convert it to number
+app.post("/section/:id/edit", (req, res) => {
     let id = +req.params.id;
+    const { code, name, type } = req.body;
+    let createdAt;
+    let parentId;
+    let status;
+    let currentDate = new Date().toLocaleString();
+    let updatedAt = currentDate;
 
-    fs.readFile("./departements.json", "utf-8", (err, data) => {
+    fs.readFile("./database/sections.json", "utf-8", (err, data) => {
         if (err) {
             res.send(err);
         } else {
             data = JSON.parse(data);
-            // dibuat instance
-            const instanceDataMaster = data.map(departement => {
-                return FactoryMasterData.create(departement);
+            const instanceSection = data.map(section => {
+                return FactoryMasterData.create(section);
             });
 
-            console.log(instanceDataMaster);
-
-            const objDataMaster = {
-                id, parentId, code, name, type, status, createdAt, updatedAt
-            };
-
-            for (let i = 0; i < instanceDataMaster.length; i++) {
-                if (id === instanceDataMaster[i].id) {
-                    const newDataMaster = FactoryMasterData.create(objDataMaster);
-                    instanceDataMaster.splice(i, 1, newDataMaster);
+            for (let i = 0; i < instanceSection.length; i++) {
+                if (id === instanceSection[i].id) {
+                    parentId = instanceSection[i].parentId;
+                    status = instanceSection[i].status;
+                    createdAt = instanceSection[i].createdAt;
                 }
             }
 
-            const newData = JSON.stringify(instanceDataMaster, null, 2);
+            const objSection = {
+                id, parentId, code, name, type, status, createdAt, updatedAt
+            };
 
-            // write file
-            fs.writeFile("./departements.json", newData, "utf-8", (err, data) => {
+            for (let i = 0; i < instanceSection.length; i++) {
+                if (id === instanceSection[i].id) {
+                    const newSection = FactoryMasterData.create(objSection);
+                    instanceSection.splice(i, 1, newSection);
+                }
+            }
+
+            const newData = JSON.stringify(instanceSection, null, 2);
+            fs.writeFile("./database/sections.json", newData, "utf-8", (err, data) => {
                 if (err) {
                     res.send(err);
                 } else {
-                    res.redirect("/masterData");
+                    res.redirect("/section");
                 }
             });
         }
