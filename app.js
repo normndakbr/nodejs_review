@@ -46,7 +46,56 @@ app.get("/departement/:id/edit", (req, res) => {
                     return FactoryMasterData.create(masterData);
                 }
             });
-            res.render("/departement/edit", { instanceDepartement });
+            res.render("departement/edit", { instanceDepartement });
+        }
+    });
+});
+
+app.post("/departement/:id/edit", (req, res) => {
+    let id = +req.params.id;
+    const { code, name, type } = req.body;
+    let createdAt;
+    let parentId;
+    let status;
+    let currentDate = new Date().toLocaleString();
+    let updatedAt = currentDate;
+
+    fs.readFile("./database/departements.json", "utf-8", (err, data) => {
+        if (err) {
+            res.send(err);
+        } else {
+            data = JSON.parse(data);
+            const instanceDepartement = data.map(departement => {
+                return FactoryMasterData.create(departement);
+            });
+
+            for (let i = 0; i < instanceDepartement.length; i++) {
+                if (id === instanceDepartement[i].id) {
+                    parentId = instanceDepartement[i].parentId;
+                    status = instanceDepartement[i].status;
+                    createdAt = instanceDepartement[i].createdAt;
+                }
+            }
+
+            const objDepartement = {
+                id, parentId, code, name, type, status, createdAt, updatedAt
+            };
+
+            for (let i = 0; i < instanceDepartement.length; i++) {
+                if (id === instanceDepartement[i].id) {
+                    const newDepartement = FactoryMasterData.create(objDepartement);
+                    instanceDepartement.splice(i, 1, newDepartement);
+                }
+            }
+
+            const newData = JSON.stringify(instanceDepartement, null, 2);
+            fs.writeFile("./database/departements.json", newData, "utf-8", (err, data) => {
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.redirect("/departement");
+                }
+            });
         }
     });
 });
@@ -166,8 +215,6 @@ app.post("/position/:id/edit", (req, res) => {
             }
 
             const newData = JSON.stringify(instancePosition, null, 2);
-
-            // write file
             fs.writeFile("./database/positions.json", newData, "utf-8", (err, data) => {
                 if (err) {
                     res.send(err);
