@@ -48,5 +48,15 @@
     "type": "section",
     "createdAt": "28/05/2024, 2:45:11 pm",
     "updatedAt": "28/05/2024, 2:45:11 pm"
+  },
+  {
+    "id": 12,
+    "parentId": 0,
+    "code": "IT",
+    "name": "Information Technology",
+    "status": "AKTIF",
+    "type": "section",
+    "createdAt": "29/05/2024, 7:37:06 am",
+    "updatedAt": "29/05/2024, 7:37:06 am"
   }
 ]

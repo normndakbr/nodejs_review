@@ -34,6 +34,23 @@ app.get("/departement/add", (req, res) => {
     res.render("departement/add");
 });
 
+app.get("/departement/:id/edit", (req, res) => {
+    let id = +req.params.id;
+    fs.readFile("./database/departements.json", "utf-8", (err, data) => {
+        if (err) {
+            res.render(err);
+        } else {
+            data = JSON.parse(data);
+            const instanceDepartement = data.filter(masterData => {
+                if (masterData.id === id) {
+                    return FactoryMasterData.create(masterData);
+                }
+            });
+            res.render("/departement/edit", { instanceDepartement });
+        }
+    });
+});
+
 app.get("/position", (req, res) => {
     fs.readFile("./database/positions.json", "utf-8", (err, data) => {
         if (err) {
@@ -82,6 +99,75 @@ app.post("/position/add", (req, res) => {
             instanceData.push(newPosition);
             const newData = JSON.stringify(instanceData, null, 2);
 
+            fs.writeFile("./database/positions.json", newData, "utf-8", (err, data) => {
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.redirect("/position");
+                }
+            });
+        }
+    });
+});
+
+app.get("/position/:id/edit", (req, res) => {
+    let id = +req.params.id;
+    fs.readFile("./database/positions.json", "utf-8", (err, data) => {
+        if (err) {
+            res.render(err);
+        } else {
+            console.log(data);
+            data = JSON.parse(data);
+            const instancePosition = data.filter(position => {
+                if (position.id === id) {
+                    return FactoryMasterData.create(position);
+                }
+            });
+            res.render("position/edit", { instancePosition });
+        }
+    });
+});
+
+app.post("/position/:id/edit", (req, res) => {
+    let id = +req.params.id;
+    const { code, name, type } = req.body;
+    let createdAt;
+    let parentId;
+    let status;
+    let currentDate = new Date().toLocaleString();
+    let updatedAt = currentDate;
+
+    fs.readFile("./database/positions.json", "utf-8", (err, data) => {
+        if (err) {
+            res.send(err);
+        } else {
+            data = JSON.parse(data);
+            const instancePosition = data.map(position => {
+                return FactoryMasterData.create(position);
+            });
+
+            for (let i = 0; i < instancePosition.length; i++) {
+                if (id === instancePosition[i].id) {
+                    parentId = instancePosition[i].parentId;
+                    status = instancePosition[i].status;
+                    createdAt = instancePosition[i].createdAt;
+                }
+            }
+
+            const objPosition = {
+                id, parentId, code, name, type, status, createdAt, updatedAt
+            };
+
+            for (let i = 0; i < instancePosition.length; i++) {
+                if (id === instancePosition[i].id) {
+                    const newPosition = FactoryMasterData.create(objPosition);
+                    instancePosition.splice(i, 1, newPosition);
+                }
+            }
+
+            const newData = JSON.stringify(instancePosition, null, 2);
+
+            // write file
             fs.writeFile("./database/positions.json", newData, "utf-8", (err, data) => {
                 if (err) {
                     res.send(err);
@@ -148,25 +234,6 @@ app.post("/section/add", (req, res) => {
                     res.redirect("/section");
                 }
             });
-        }
-    });
-});
-
-app.get("/departement/:id/edit", (req, res) => {
-    // get id from request params (:id) and convert it to number
-    let id = +req.params.id;
-    fs.readFile("./departements.json", "utf-8", (err, data) => {
-        if (err) {
-            res.render(err);
-        } else {
-            data = JSON.parse(data);
-            const instanceDepartement = data.filter(masterData => {
-                if (masterData.id === id) {
-                    return FactoryMasterData.create(masterData);
-                }
-            });
-            // console.log(instanceDepartement[0]);
-            res.render("/departement/edit", { instanceDepartement });
         }
     });
 });

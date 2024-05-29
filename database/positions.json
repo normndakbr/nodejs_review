@@ -12,12 +12,12 @@
   {
     "id": 11,
     "parentId": 0,
-    "code": "TST5",
-    "name": "Test 5",
+    "code": "FRM",
+    "name": "Foreman",
     "status": "AKTIF",
     "type": "position",
     "createdAt": "19/05/2024, 5:09:22 pm",
-    "updatedAt": "19/05/2024, 5:09:22 pm"
+    "updatedAt": "29/05/2024, 4:50:14 pm"
   },
   {
     "id": 12,
