@@ -32,22 +32,22 @@
   {
     "id": 10,
     "parentId": 0,
-    "code": "asdf",
-    "name": "asdfasdaf",
+    "code": "HC",
+    "name": "Human Capital",
     "status": "AKTIF",
     "type": "section",
     "createdAt": "28/05/2024, 2:45:03 pm",
-    "updatedAt": "28/05/2024, 2:45:03 pm"
+    "updatedAt": "02/06/2024, 11:45:53 am"
   },
   {
     "id": 11,
     "parentId": 0,
-    "code": "cvbn",
-    "name": "cvbn",
+    "code": "GS",
+    "name": "General Services",
     "status": "AKTIF",
     "type": "section",
     "createdAt": "28/05/2024, 2:45:11 pm",
-    "updatedAt": "28/05/2024, 2:45:11 pm"
+    "updatedAt": "31/05/2024, 5:44:23 pm"
   },
   {
     "id": 12,
